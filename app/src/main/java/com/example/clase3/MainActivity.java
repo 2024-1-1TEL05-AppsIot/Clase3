@@ -2,6 +2,7 @@ package com.example.clase3;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.clase3.databinding.ActivityMainBinding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.search.SearchBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
         String nombre = binding.editTextNombre.getText().toString();
         String apellido = binding.editTextApellido.getText().toString();
         String edadStr = binding.textFieldEdad.getEditText().getText().toString();
-        String progressSeekBar = String.valueOf(binding.seekBar.getProgress());
+        //String progressSeekBar = String.valueOf(binding.seekBar.getProgress());
+        String progressSeekBar = String.valueOf(binding.sliderDemo.getValue());
         String carrera = binding.radioButton.isChecked()?
                 "Telecom":binding.radioButton2.isChecked()?
                 "Electrónico":"";
@@ -90,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
     public void registrar() {
         binding.buttonRegistrar.setOnClickListener(view -> {
             String texto = cadenaRegistro();
-            //mostrarRegistroConMaterial(texto);
-            Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
+            mostrarRegistroConMaterial(texto);
+            //Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
         });
     }
 
